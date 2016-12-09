@@ -1,4 +1,4 @@
-defmodule Hoplaboom.PageController do
+defmodule Hoplaboom.HomeController do
   use Hoplaboom.Web, :controller
 
   def index(conn, _params) do
