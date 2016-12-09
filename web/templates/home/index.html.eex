@@ -1,0 +1,11 @@
+<div class="pure-form pure-form-stacked">
+  <%= form_for @conn, "#", [as: :sign_up], fn f -> %>
+  <fieldset>
+    <%= text_input f, :full_name, placeholder: "Your full name", class: "pure-input-1-3" %>
+    <%= text_input f, :company_name, placeholder: "Company/organization name", class: "pure-input-1-3" %>
+    <%= email_input f, :email, placeholder: "Email", class: "pure-input-1-3" %>
+    <%= password_input f, :password, placeholder: "Password", class: "pure-input-1-3" %>
+  </fieldset>
+  <%= submit "Create a new account", class: "pure-button pure-button-primary" %>
+  <% end %>
+</div>
