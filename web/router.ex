@@ -17,6 +17,7 @@ defmodule Hoplaboom.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", HomeController, :index
+    post "/sign_up", RegistrationController, :sign_up
   end
 
   # Other scopes may use custom stacks.
