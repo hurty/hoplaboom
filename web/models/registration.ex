@@ -36,6 +36,11 @@ defmodule Hoplaboom.Registration do
   end
 
   defp membership_changeset(changes) do
-    %Membership{organization_id: changes.organization.id, user_id: changes.user.id}
+    Membership.changeset(
+      %Membership{
+        organization_id: changes.organization.id,
+        user_id: changes.user.id
+      }
+    )
   end
 end

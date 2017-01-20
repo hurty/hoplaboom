@@ -1,5 +1,3 @@
-require IEx
-
 defmodule Hoplaboom.HomeController do
   use Hoplaboom.Web, :controller
   alias Hoplaboom.Registration
@@ -10,17 +8,21 @@ defmodule Hoplaboom.HomeController do
 
   def sign_up(conn, %{"registration" => registration_params}) do
     changeset = Registration.changeset(%Registration{}, registration_params)
-    # IEx.pry
     if changeset.valid? do
       case Repo.transaction(Registration.to_multi(registration_params)) do
         {:ok, _} ->
-          # redirect(conn, to: home_path(conn, :index))
           render(conn, "index_ok.html")
-        {:error, _failed_operation, _failed_value, _changes_so_far} ->
-          render(conn, "index.html")
+        {:error, _failed_operation, failed_value, _changes_so_far} ->
+          render(conn, "index.html", changeset: %{copy_errors(failed_value, changeset) | action: :insert})
       end
     else
       render(conn, "index.html", changeset: %{changeset | action: :insert})
+    end
+  end
+
+  defp copy_errors(from, to) do
+    Enum.reduce from.errors, to, fn {field, {msg, additional}}, acc ->
+      Ecto.Changeset.add_error(acc, field, msg, additional: additional)
     end
   end
 end
