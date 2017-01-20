@@ -3,13 +3,12 @@ defmodule Hoplaboom.Organization do
 
   schema "organizations" do
     field :name, :string
-
     timestamps()
+
+    has_many :memberships, Hoplaboom.Membership
+    has_many :users, through: [:memberships, :user]
   end
 
-  @doc """
-  Builds a changeset based on the `struct` and `params`.
-  """
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:name])
