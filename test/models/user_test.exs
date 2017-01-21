@@ -4,7 +4,7 @@ defmodule Hoplaboom.UserTest do
   alias Hoplaboom.User
 
   @valid_attrs %{email: "some content", name: "some content", password_hash: "some content"}
-  @invalid_attrs %{}
+  @invalid_attrs %{name: "Justa Name"}
 
   test "changeset with valid attributes" do
     changeset = User.changeset(%User{}, @valid_attrs)

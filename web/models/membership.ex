@@ -6,9 +6,12 @@ defmodule Hoplaboom.Membership do
     belongs_to :user, Hoplaboom.User
   end
 
+  @required_fields ~w(user_id organization_id)a
+
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:organization_id, :user_id])
+    |> cast(params, @required_fields)
+    |> validate_required(@required_fields)
     |> unique_constraint(:organization_id, name: "memberships_organization_id_user_id_index")
   end
 end

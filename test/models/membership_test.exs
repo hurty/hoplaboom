@@ -3,8 +3,8 @@ defmodule Hoplaboom.MembershipTest do
 
   alias Hoplaboom.Membership
 
-  @valid_attrs %{}
-  @invalid_attrs %{}
+  @valid_attrs %{user_id: 1, organization_id: 1}
+  @invalid_attrs %{user_id: 1}
 
   test "changeset with valid attributes" do
     changeset = Membership.changeset(%Membership{}, @valid_attrs)
