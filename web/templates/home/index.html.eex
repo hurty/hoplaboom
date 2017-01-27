@@ -1,18 +1,20 @@
-<div class="pure-form pure-form-stacked">
+<div class="">
   <%= if @changeset.action do %>
     <p>Oops something went wrong <%= @changeset.action %></p>
   <% end %>
+
   <%= form_for @changeset, home_path(@conn, :sign_up), [as: :registration], fn f -> %>
-  <fieldset>
-    <%= text_input f, :name, placeholder: "Your full name", class: "pure-input-1-3" %>
-    <%= error_tag f, :name %>
-    <%= text_input f, :organization_name, placeholder: "Company/organization name", class: "pure-input-1-3" %>
-    <%= error_tag f, :organization_name %>
-    <%= email_input f, :email, placeholder: "Email", class: "pure-input-1-3" %>
-    <%= error_tag f, :email %>
-    <%= password_input f, :password_hash, placeholder: "Password", class: "pure-input-1-3" %>
-    <%= error_tag f, :password_hash %>
-  </fieldset>
-  <%= submit "Create a new account", class: "pure-button pure-button-primary" %>
+    <fieldset>
+      <%= text_input f, :name, placeholder: "Your full name", class: "" %>
+      <%= error_tag f, :name %>
+      <%= text_input f, :organization_name, placeholder: "Company/organization name", class: "" %>
+      <%= error_tag f, :organization_name %>
+      <%= email_input f, :email, placeholder: "Email", class: "" %>
+      <%= error_tag f, :email %>
+      <%= password_input f, :password_hash, placeholder: "Password", class: "" %>
+      <%= error_tag f, :password_hash %>
+    </fieldset>
+
+    <%= submit "Create a new account", class: "" %>
   <% end %>
 </div>
