@@ -32,7 +32,7 @@ defmodule Hoplaboom.Registration do
   end
 
   defp organization_changeset(%{"organization_name" => name}) do
-    Organization.changeset(%Organization{name: name})
+    Organization.changeset(%Organization{}, %{name: name})
   end
 
   defp membership_changeset(changes) do

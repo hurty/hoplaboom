@@ -14,6 +14,8 @@ defmodule Hoplaboom.User do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:email, :name, :password_hash])
+    |> update_change(:name, &(String.trim(&1)))
+    |> update_change(:email, &(String.trim(&1)))
     |> validate_required([:email, :name, :password_hash])
     |> unique_constraint(:email)
   end
