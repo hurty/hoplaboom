@@ -1,0 +1,11 @@
+.notice {
+  font-family: monospace;
+  padding: 5px 3px 5px 3px;
+  border-radius: 3px;
+  border-top: 1px dashed rgba(250, 64, 57, 0.25);
+}
+
+.notice--error {
+  background: rgb(255, 253, 228);
+  color: rgb(250, 64, 57)
+}

@@ -1,20 +1,28 @@
-<div class="">
+<div class="section">
+  <h2 class="section__title">Try it for free!</h2>
   <%= if @changeset.action do %>
-    <p>Oops something went wrong <%= @changeset.action %></p>
+    <p class="notice notice--error">Oops something went wrong! Check the errors below :</p>
   <% end %>
 
-  <%= form_for @changeset, home_path(@conn, :sign_up), [as: :registration], fn f -> %>
-    <fieldset>
-      <%= text_input f, :name, placeholder: "Your full name", class: "" %>
-      <%= error_tag f, :name %>
-      <%= text_input f, :organization_name, placeholder: "Company/organization name", class: "" %>
-      <%= error_tag f, :organization_name %>
-      <%= email_input f, :email, placeholder: "Email", class: "" %>
-      <%= error_tag f, :email %>
-      <%= password_input f, :password_hash, placeholder: "Password", class: "" %>
-      <%= error_tag f, :password_hash %>
-    </fieldset>
+  <div class="form form--stacked">
+    <%= form_for @changeset, home_path(@conn, :sign_up), [as: :registration], fn f -> %>
+        <%= label f, :name, "Your full name" %>
+        <%= text_input f, :name, placeholder: "Ex: Emmett Brown", class: "" %>
+        <%= error_tag f, :name %>
 
-    <%= submit "Create a new account", class: "" %>
-  <% end %>
+        <%= label f, :organization_name, "Company/organization name" %>
+        <%= text_input f, :organization_name, placeholder: "Ex: The Time Travel Agency", class: "" %>
+        <%= error_tag f, :organization_name %>
+
+        <%= label f, :email, "Your Email address" %>
+        <%= email_input f, :email, placeholder: "Ex: emmett@tta.com", class: "" %>
+        <%= error_tag f, :email %>
+
+        <%= label f, :email, "Choose a password" %>
+        <%= password_input f, :password_hash, placeholder: "8 chars minimum", class: "" %>
+        <%= error_tag f, :password_hash %>
+
+      <%= submit "Create a new account", class: "" %>
+    <% end %>
+  </div>
 </div>

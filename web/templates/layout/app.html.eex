@@ -9,8 +9,19 @@
   </head>
 
   <body>
-    <h1>Hoplaboom</h1>
-    <%= render @view_module, @view_template, assigns %>
+    <header class="top-menu">
+      <h1 class="top-menu__title">Hoplaboom</h1>
+      <nav class="top-menu__nav">
+        <a class="top-menu__link" href="#">Product Tour</a>
+        <a class="top-menu__link" href="#">Pricing</a>
+        <a class="top-menu__link top-menu__link--important" href="#">Sign up</a>
+      </nav>
+    </header>
+
+    <main>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
