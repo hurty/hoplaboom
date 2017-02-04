@@ -30,8 +30,8 @@
 
         <div class="form__field">
           <%= label f, :email, "Choose a password" %>
-          <%= error_tag f, :password_hash %>
-          <%= password_input f, :password_hash, placeholder: "8 chars minimum", class: "" %>
+          <%= error_tag f, :password %>
+          <%= password_input f, :password, placeholder: "8 chars minimum", class: "" %>
         </div>
 
         <div class="form__actions">

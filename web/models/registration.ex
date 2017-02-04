@@ -6,10 +6,10 @@ defmodule Hoplaboom.Registration do
     field :name
     field :organization_name
     field :email
-    field :password_hash
+    field :password
   end
 
-  @required_fields ~w(name organization_name email password_hash)a
+  @required_fields ~w(name organization_name email password)a
 
   def changeset(struct, params \\ %{}) do
     struct
@@ -27,7 +27,7 @@ defmodule Hoplaboom.Registration do
   end
 
   defp user_changeset(params) do
-    user_params = Map.take(params, ["name", "email", "password_hash"])
+    user_params = Map.take(params, ["name", "email", "password"])
     User.changeset(%User{}, user_params)
   end
 
