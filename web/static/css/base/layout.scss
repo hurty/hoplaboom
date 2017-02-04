@@ -1,0 +1,42 @@
+main {
+  padding: 2rem;
+  flex: 1;
+  background: #eee;
+}
+
+footer {
+  text-align: center;
+  background: olive;
+  padding: 20px 0 20px 0;
+}
+
+.row, section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 2px solid black;
+}
+
+.column, article, aside {
+  flex-basis: 100%;
+  border: 2px solid pink;
+}
+
+@media screen and (min-width: 800px) {
+  .column {
+    flex: 1;
+  }
+
+  // Gutters
+  .column + .column {
+    margin-left: 1rem
+  }
+
+  .column--one-fourth {
+    flex: 0.25;
+  }
+
+  .column--half {
+    flex: 0.5;
+  }
+}

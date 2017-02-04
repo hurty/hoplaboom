@@ -1,5 +1,5 @@
 .form {
-  padding: 2rem;
+  padding: 1rem;
   background: #ffffff;
   border: 1px solid #e2e2e2;
   box-shadow: 0 3px 6px 0 rgba(0,0,0,0.05);
@@ -7,15 +7,20 @@
 }
 
 .form--stacked form {
-  display: flex;
-  flex-direction: column;
+
 }
 
-// plutot des .form__field
+.form__field {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 1rem 0;
+}
 
 .form label {
-  text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 
 .form--stacked input[type="text"],
@@ -57,12 +62,9 @@
 .form select,
 .form textarea {
     padding: 0.5em 0.6em;
-    display: inline-block;
     border: 1px solid #e2e2e2;
     box-shadow: inset 0 1px 3px #ddd;
     border-radius: 3px;
-    vertical-align: middle;
-    box-sizing: border-box;
 }
 
 .form input[type="text"]:focus,
@@ -85,9 +87,29 @@
     border-color: rgb(89, 190, 235);
 }
 
-.form button {
-  background: rgb(92, 193, 237);
-  font-size: 1.2rem;
-  border: none;
-  padding: 5px 10px 5px 10px;
+.button {
+  padding: 0.75em 1em;
+  display: inline-block;
+  color: white;
+  border-style: none;
+  font-size: 1.1rem;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+}
+
+.button--primary {
+  background-color: #4a90e2;
+  border-bottom: 2px solid #277adc;
+}
+
+.form__field-error {
+  padding: 3px;
+  background: rgb(255, 253, 228);
+  color: rgb(250, 64, 57);
 }

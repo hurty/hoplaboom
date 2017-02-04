@@ -1,28 +1,43 @@
-<div class="section">
-  <h2 class="section__title">Try it for free!</h2>
-  <%= if @changeset.action do %>
-    <p class="notice notice--error">Oops something went wrong! Check the errors below :</p>
-  <% end %>
+<div class="row">
+  <div class="column">
+    <h2 class="section__title">Try it for free!</h2>
+  </div>
 
-  <div class="form form--stacked">
-    <%= form_for @changeset, home_path(@conn, :sign_up), [as: :registration], fn f -> %>
-        <%= label f, :name, "Your full name" %>
-        <%= text_input f, :name, placeholder: "Ex: Emmett Brown", class: "" %>
-        <%= error_tag f, :name %>
-
-        <%= label f, :organization_name, "Company/organization name" %>
-        <%= text_input f, :organization_name, placeholder: "Ex: The Time Travel Agency", class: "" %>
-        <%= error_tag f, :organization_name %>
-
-        <%= label f, :email, "Your Email address" %>
-        <%= email_input f, :email, placeholder: "Ex: emmett@tta.com", class: "" %>
-        <%= error_tag f, :email %>
-
-        <%= label f, :email, "Choose a password" %>
-        <%= password_input f, :password_hash, placeholder: "8 chars minimum", class: "" %>
-        <%= error_tag f, :password_hash %>
-
-      <%= submit "Create a new account", class: "" %>
+  <div class="column">
+    <%= if @changeset.action do %>
+      <p class="notice notice--error">Oops something went wrong! Check the errors below :</p>
     <% end %>
+
+    <div class="form form--stacked">
+      <%= form_for @changeset, home_path(@conn, :sign_up), [as: :registration], fn f -> %>
+        <div class="form__field">
+          <%= label f, :name, "Your full name" %>
+          <%= error_tag f, :name %>
+          <%= text_input f, :name, placeholder: "Ex: Emmett Brown", class: "" %>
+        </div>
+
+        <div class="form__field">
+          <%= label f, :organization_name, "Company/organization name" %>
+          <%= error_tag f, :organization_name %>
+          <%= text_input f, :organization_name, placeholder: "Ex: The Time Travel Agency", class: "" %>
+        </div>
+
+        <div class="form__field">
+          <%= label f, :email, "Your Email address" %>
+          <%= error_tag f, :email %>
+          <%= email_input f, :email, placeholder: "Ex: emmett@tta.com", class: "" %>
+        </div>
+
+        <div class="form__field">
+          <%= label f, :email, "Choose a password" %>
+          <%= error_tag f, :password_hash %>
+          <%= password_input f, :password_hash, placeholder: "8 chars minimum", class: "" %>
+        </div>
+
+        <div class="form__actions">
+          <%= submit "Create a new account", class: "button button--primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

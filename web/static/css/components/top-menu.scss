@@ -4,8 +4,9 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 10px;
-  box-shadow: inset 0 0 3px 0 #ddd;
+  border-bottom: 1px solid #ddd;
   padding: 10px 2.5%;
+  background-color: yellow;
 }
 
 .top-menu__title {
@@ -13,7 +14,6 @@
 }
 
 .top-menu__nav {
-  // margin: auto 40px auto 10px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;

@@ -18,9 +18,11 @@
       </nav>
     </header>
 
-    <main>
+    <main class="container">
       <%= render @view_module, @view_template, assigns %>
     </main>
+
+    <footer>&copy; 2017 Hoplaboom</footer>
 
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
