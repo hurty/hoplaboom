@@ -7,6 +7,7 @@ defmodule Hoplaboom.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Hoplaboom.Auth, repo: Hoplaboom.Repo
   end
 
   pipeline :api do
@@ -18,6 +19,8 @@ defmodule Hoplaboom.Router do
 
     get "/", HomeController, :index
     post "/sign_up", HomeController, :sign_up
+
+    resources "/users", UserController
   end
 
   # Other scopes may use custom stacks.

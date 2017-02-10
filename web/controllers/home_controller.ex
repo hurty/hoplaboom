@@ -10,8 +10,10 @@ defmodule Hoplaboom.HomeController do
     changeset = Registration.changeset(%Registration{}, registration_params)
     if changeset.valid? do
       case Repo.transaction(Registration.to_multi(registration_params)) do
-        {:ok, _} ->
-          render(conn, "index_ok.html")
+        {:ok, %{user: user, organization: organization}} ->
+          conn
+          |> Hoplaboom.Auth.login(organization, user)
+          |> redirect(to: user_path(conn, :index))
         {:error, _failed_operation, failed_value, _changes_so_far} ->
           render(conn, "index.html", changeset: %{copy_errors(failed_value, changeset) | action: :insert})
       end

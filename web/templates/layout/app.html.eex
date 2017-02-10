@@ -19,6 +19,7 @@
     </header>
 
     <main class="container">
+      <%= get_flash(@conn, :error) %>
       <%= render @view_module, @view_template, assigns %>
     </main>
 
